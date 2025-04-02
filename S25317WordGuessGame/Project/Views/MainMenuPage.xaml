@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="S25317WordGuessGame.Project.Views.MainMenuPage"
+             Title="MainMenuPage" BackgroundColor="#B5E61D">
+    
+    <!--Similar to Cascading Style Sheets(CSS) in web development, we can define a
+        style that can be applied to particular controls/layouts/etc.
+        This is useful when you have more than one control that has the same property
+        values -->
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="styleMenuButton">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MaximumWidthRequest" Value="300"/>
+            <Setter Property="HeightRequest" Value="70"/>
+            <Setter Property="TextColor" Value="#000000"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <!-- ************************
+           Page Content Start
+         ************************
+     -->
+    <Grid RowDefinitions="*, *" MaximumWidthRequest="1024">
+        
+        <!--The Image and Border below define the background of the main canvas -->
+        <Image Source="background.jpg" Grid.RowSpan="2"/>
+        <Border Grid.RowSpan="2" StrokeThickness="0" HeightRequest="1024"
+                BackgroundColor="#DDFFFFFF"/>
+        
+        <!--Title Box-->
+        <Border BackgroundColor="#8875FA8D" MaximumWidthRequest="700" HeightRequest="200"
+                Stroke="#AAAAAA" StrokeThickness="1" StrokeShape="RoundRectangle 20">
+            <Label Text="Word Guess!" HorizontalOptions="Center" VerticalOptions="Center"
+                   FontSize="80" FontFamily="Comic Sans MS"/>
+        </Border>
+        
+        <!--Menu Buttons-->
+        <VerticalStackLayout Grid.Row="1">
+            <!--Notice below the styleMenuButton reference, which references the style above-->
+            <Button Text="New Game" Style="{x:StaticResource styleMenuButton}" BackgroundColor="#C8BFE7" Clicked="ClickNewGameButton"/>
+            <Button Text="Leaderboards" Style="{x:StaticResource styleMenuButton}" BackgroundColor="#FFC90E"/>
+            <Button Text="Quit Game" Style="{x:StaticResource styleMenuButton}" BackgroundColor="#F08784"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
