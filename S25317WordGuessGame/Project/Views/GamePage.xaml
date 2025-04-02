@@ -4,5 +4,33 @@
              x:Class="S25317WordGuessGame.Project.Views.GamePage"
              Title="GamePage">
 
-   
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="styleInfoLable">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="150, *, 150" ColumnDefinitions="150, *, 150">
+        <Label Text="Guess the Word!" Grid.Column="1" 
+               VerticalOptions="Center" HorizontalOptions="Center"
+               FontSize="50" FontFamily="Comic Sans MS"
+        />
+
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="Time Passed" Style="{x:StaticResource styleInfoLable}"/>
+            <Label Text="XX:XX" Style="{x:StaticResource styleInfoLable}"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="2">
+            <Label Text="Chaces Remaining" Style="{x:StaticResource styleInfoLable}"/>
+            <Label Text="XX" Style="{x:StaticResource styleInfoLable}"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
+            <Label Text="Score" Style="{x:StaticResource styleInfoLable}"/>
+            <Label Text="XX" Style="{x:StaticResource styleInfoLable}"/>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>
