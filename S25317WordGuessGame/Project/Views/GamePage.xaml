@@ -10,14 +10,49 @@
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
+        
+        <Style TargetType="Border" x:Key="styleEmptyLetterBorder">
+            <Setter Property="WidthRequest" Value="75" />
+            <Setter Property="HeightRequest" Value="110" />
+            <Setter Property="Stroke" Value="#000" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 6"/>
+        </Style>
+        
+         <Style TargetType="Label" x:Key="styleEmptyLetterLabel">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="35"/>
+        </Style>
+        
+         <Style TargetType="Border" x:Key="styleLetterButtonBorder">
+            <Setter Property="WidthRequest" Value="75" />
+            <Setter Property="HeightRequest" Value="80" />
+            <Setter Property="Stroke" Value="#000" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 6"/>
+            <Setter Property="BackgroundColor" Value="#FFAAAA"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="styleLetterButton">
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+        
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="150, *, 150" ColumnDefinitions="150, *, 150">
+    <Grid RowDefinitions="150, *, 250" ColumnDefinitions="150, *, 150">
+        <!-- Title View -->
         <Label Text="Guess the Word!" Grid.Column="1" 
                VerticalOptions="Center" HorizontalOptions="Center"
                FontSize="50" FontFamily="Comic Sans MS"
         />
-
+        
+        <!-- 
+            *********************************************************
+                Info Views (Score, Time, and Chances Remaining)
+            *********************************************************
+        -->
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
             <Label Text="Time Passed" Style="{x:StaticResource styleInfoLable}"/>
             <Label Text="XX:XX" Style="{x:StaticResource styleInfoLable}"/>
@@ -31,6 +66,43 @@
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="2">
             <Label Text="Score" Style="{x:StaticResource styleInfoLable}"/>
             <Label Text="XX" Style="{x:StaticResource styleInfoLable}"/>
+        </VerticalStackLayout>
+        
+        <!-- 
+            *****************************
+                 Empty Word View
+            *****************************
+        -->
+
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center">
+            <Label Text="Select a letter below to make a guess..." FontSize="30" HorizontalTextAlignment="Center"/>
+            <HorizontalStackLayout x:Name="layoutWordView" HorizontalOptions="Center" Margin="20" Spacing="20">
+
+                <Border Style="{x:StaticResource styleEmptyLetterBorder}">
+                    <Label x:Name="lblWord1" Text="X" Style="{StaticResource styleEmptyLetterLabel}" />
+                </Border>
+
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        
+        <!--
+            ****************************
+                Letter Select View
+            ****************************
+        -->
+        <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="10">
+            <HorizontalStackLayout x:Name="layoutAlphabetButtons1">
+                <!--Make the letter buttons-->
+                <Border Style="{x:StaticResource styleLetterButtonBorder}">
+                    <Button Text="A" Style="{StaticResource styleLetterButton}" />
+                </Border>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="layoutAlphabetButtons2">
+                <!--Make the letter buttons-->
+                <Border Style="{x:StaticResource styleLetterButtonBorder}">
+                    <Button Text="N" Style="{StaticResource styleLetterButton}" />
+                </Border>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
