@@ -4,47 +4,6 @@
              x:Class="S25317WordGuessGame.Project.Views.GamePage"
              Title="GamePage">
 
-    <ContentPage.Resources>
-        <Style TargetType="Label" x:Key="styleInfoLabel">
-            <Setter Property="HorizontalOptions" Value="Center"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-        </Style>
-
-        <Style TargetType="Border" x:Key="styleInfoBorder">
-            <Setter Property="BackgroundColor" Value="#55BBFFBB"/>
-        </Style>
-        
-        <Style TargetType="Border" x:Key="styleEmptyLetterBorder">
-            <Setter Property="WidthRequest" Value="75" />
-            <Setter Property="HeightRequest" Value="110" />
-            <Setter Property="Stroke" Value="#000" />
-            <Setter Property="StrokeThickness" Value="2" />
-            <Setter Property="StrokeShape" Value="RoundRectangle 6"/>
-        </Style>
-        
-         <Style TargetType="Label" x:Key="styleEmptyLetterLabel">
-            <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="VerticalTextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="35"/>
-        </Style>
-        
-         <Style TargetType="Border" x:Key="styleLetterButtonBorder">
-            <Setter Property="WidthRequest" Value="75" />
-            <Setter Property="HeightRequest" Value="60" />
-            <Setter Property="Stroke" Value="#000" />
-            <Setter Property="StrokeThickness" Value="2" />
-            <Setter Property="StrokeShape" Value="RoundRectangle 6"/>
-            <Setter Property="BackgroundColor" Value="#FFAAAA"/>
-        </Style>
-
-        <Style TargetType="Button" x:Key="styleLetterButton">
-            <Setter Property="FontSize" Value="35"/>
-            <Setter Property="BackgroundColor" Value="Transparent"/>
-        </Style>
-        
-    </ContentPage.Resources>
-
     <Grid RowDefinitions="150, *, 150" ColumnDefinitions="250, *, 250">
         <!-- Title View -->
         <Label Text="Guess the Word!" Grid.Column="1" 
@@ -76,8 +35,6 @@
             </VerticalStackLayout>
         </Border>
         
-       
-        
         <!-- 
             *****************************
                  Empty Word View
@@ -101,13 +58,13 @@
             ****************************
         -->
         <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="2" Spacing="10" VerticalOptions="Center" Margin="10, 0">
-            <HorizontalStackLayout x:Name="layoutAlphabetButtons1">
+            <HorizontalStackLayout x:Name="layoutAlphabetButtons1" Spacing="5">
                 <!--Make the letter buttons-->
                 <Border Style="{x:StaticResource styleLetterButtonBorder}">
-                    <Button Text="A" Style="{StaticResource styleLetterButton}" />
+                    <Button Text="A" Style="{StaticResource styleLetterButton}" Clicked="LetterButtonClicked" />
                 </Border>
             </HorizontalStackLayout>
-            <HorizontalStackLayout x:Name="layoutAlphabetButtons2">
+            <HorizontalStackLayout x:Name="layoutAlphabetButtons2" Spacing="5">
                 <!--Make the letter buttons-->
                 <Border Style="{x:StaticResource styleLetterButtonBorder}">
                     <Button Text="N" Style="{StaticResource styleLetterButton}" />

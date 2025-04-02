@@ -4,21 +4,6 @@
              x:Class="S25317WordGuessGame.Project.Views.MainMenuPage"
              Title="MainMenuPage" BackgroundColor="#B5E61D">
     
-    <!--Similar to Cascading Style Sheets(CSS) in web development, we can define a
-        style that can be applied to particular controls/layouts/etc.
-        This is useful when you have more than one control that has the same property
-        values -->
-    <ContentPage.Resources>
-        <Style TargetType="Button" x:Key="styleMenuButton">
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
-            <Setter Property="FontAttributes" Value="Bold"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="MaximumWidthRequest" Value="300"/>
-            <Setter Property="HeightRequest" Value="70"/>
-            <Setter Property="TextColor" Value="#000000"/>
-        </Style>
-    </ContentPage.Resources>
     
     <!-- ************************
            Page Content Start
@@ -40,7 +25,10 @@
         
         <!--Menu Buttons-->
         <VerticalStackLayout Grid.Row="1">
-            <!--Notice below the styleMenuButton reference, which references the style above-->
+            <!--
+                Notice below the styleMenuButton reference, which references the style in 
+                Resources -> Styles -> AppStyles.xaml 
+            -->
             <Button Text="New Game" Style="{x:StaticResource styleMenuButton}" BackgroundColor="#C8BFE7" Clicked="ClickNewGameButton"/>
             <Button Text="Leaderboards" Style="{x:StaticResource styleMenuButton}" BackgroundColor="#FFC90E"/>
             <Button Text="Quit Game" Style="{x:StaticResource styleMenuButton}" BackgroundColor="#F08784"/>
